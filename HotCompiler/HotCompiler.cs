@@ -35,14 +35,19 @@ public class HotCompiler
 	{
 		Info(Environment.NewLine + "*** TRY INSTALL AND COMPILE ***");
 
+		bool bShouldAskPreBuildSteps = !Ask("Would you just like to compile the game source?");
+		
 		if (!ValidateProject())
 		{
 			return false;
 		}
 
-		if (!DownloadPlugin())
+		if (bShouldAskPreBuildSteps)
 		{
-			Warning("Could not install the plugin");
+			if (!DownloadPlugin())
+			{
+				Warning("Could not install the plugin");
+			}
 		}
 
 		if (!ValidatePlugin())
@@ -50,19 +55,22 @@ public class HotCompiler
 			return false;
 		}
 
-		if (!DownloadSource())
+		if (bShouldAskPreBuildSteps)
 		{
-			Warning("Could not install the base game source");
-		}
+			if (!DownloadSource())
+			{
+				Warning("Could not install the base game source");
+			}
 
-		if (Ask("Would you like to compile the managed runtime?"))
-		{
-			CompileManagedRuntime();
-		}
-		
-		if (Ask("Would you like to compile the framework?"))
-		{
-			CompileFramework();
+			if (Ask("Would you like to compile the managed runtime?"))
+			{
+				CompileManagedRuntime();
+			}
+
+			if (Ask("Would you like to compile the framework?"))
+			{
+				CompileFramework();
+			}
 		}
 
 		CompileSourceModules();
