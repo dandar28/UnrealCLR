@@ -1,6 +1,12 @@
 */.DS_Store
-*/Install/bin
-*/Install/obj
+
+# Ignore VS
+.vs
+
+# Ignore C#
+bin/
+obj/
+
 */Source/Managed/Framework/bin
 */Source/Managed/Framework/obj
 */Source/Managed/Runtime/bin

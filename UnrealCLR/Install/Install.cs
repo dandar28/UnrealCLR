@@ -14,7 +14,7 @@ public static class Install {
 		Console.Write(Environment.NewLine + "Please, set a path to an Unreal Engine project: ");
 
 		string projectPath = @"" + Console.ReadLine().Replace("\"", String.Empty, StringComparison.Ordinal).Replace("\'", String.Empty, StringComparison.Ordinal).TrimEnd(Path.DirectorySeparatorChar);
-		string sourcePath = Directory.GetCurrentDirectory() + "/..";
+		string sourcePath = Directory.GetCurrentDirectory() + "/../UnrealCLR";
 
 		if (Directory.GetFiles(projectPath, "*.uproject", SearchOption.TopDirectoryOnly).Length != 0) {
 			Console.WriteLine($"Project file found in \"{ projectPath }\" folder!");

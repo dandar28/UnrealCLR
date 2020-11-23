@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotCompiler", "HotCompiler\HotCompiler.csproj", "{99845C73-6EFD-4983-AEFA-889E9E1415B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnrealEngine.Game", "Game\UnrealEngine.Game.csproj", "{3AFD2323-D3E5-4F58-A851-BE890395262C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{99845C73-6EFD-4983-AEFA-889E9E1415B4}.Debug|x64.ActiveCfg = Debug|x64
-		{99845C73-6EFD-4983-AEFA-889E9E1415B4}.Debug|x64.Build.0 = Debug|x64
-		{99845C73-6EFD-4983-AEFA-889E9E1415B4}.Release|x64.ActiveCfg = Release|x64
-		{99845C73-6EFD-4983-AEFA-889E9E1415B4}.Release|x64.Build.0 = Release|x64
+		{3AFD2323-D3E5-4F58-A851-BE890395262C}.Debug|x64.ActiveCfg = Debug|x64
+		{3AFD2323-D3E5-4F58-A851-BE890395262C}.Debug|x64.Build.0 = Debug|x64
+		{3AFD2323-D3E5-4F58-A851-BE890395262C}.Release|x64.ActiveCfg = Release|x64
+		{3AFD2323-D3E5-4F58-A851-BE890395262C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {12B5C0D9-EFB4-40FC-A05D-35C02A0CEBCB}
+		SolutionGuid = {671C3D8C-6197-4BE2-8B5D-16F78199F65A}
 	EndGlobalSection
 EndGlobal
