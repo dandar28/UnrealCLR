@@ -119,13 +119,13 @@ public class HotCompiler
 			if (Directory.Exists(toFolder))
 			{
 				Directory.Delete(toFolder, true);
-				Warning("Deleted previous managed runtime source installation");
+				Warning($"Deleted previous {folderDisplayName} installation");
 			}
 		}
 
 		// Copying installation folder to the specified destination
 		{
-			Info("Copying native source code and the runtime host of the plugin...");
+			Info($"Copying {folderDisplayName}...");
 
 			try
 			{
@@ -145,7 +145,7 @@ public class HotCompiler
 				return false;
 			}
 
-			Success("Copied all native source code and runtime host!");
+			Success($"Copied {folderDisplayName} successfully!");
 		}
 
 		return true;
