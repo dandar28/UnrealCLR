@@ -36,11 +36,13 @@ public class HotCompiler
 		Info(Environment.NewLine + "*** TRY INSTALL AND COMPILE ***");
 
 		bool bShouldAskPreBuildSteps = !Ask("Would you just like to compile the game source?");
-		
+
 		if (!ValidateProject())
 		{
 			return false;
 		}
+
+		ShowSeparator();
 
 		if (bShouldAskPreBuildSteps)
 		{
@@ -48,12 +50,16 @@ public class HotCompiler
 			{
 				Warning("Could not install the plugin");
 			}
+
+			ShowSeparator();
 		}
 
 		if (!ValidatePlugin())
 		{
 			return false;
 		}
+
+		ShowSeparator();
 
 		if (bShouldAskPreBuildSteps)
 		{
@@ -62,18 +68,26 @@ public class HotCompiler
 				Warning("Could not install the base game source");
 			}
 
+			ShowSeparator();
+
 			if (Ask("Would you like to compile the managed runtime?"))
 			{
 				CompileManagedRuntime();
 			}
 
+			ShowSeparator();
+
 			if (Ask("Would you like to compile the framework?"))
 			{
 				CompileFramework();
 			}
+
+			ShowSeparator();
 		}
 
 		CompileSourceModules();
+
+		ShowSeparator();
 
 		Success("Done!");
 
@@ -206,6 +220,8 @@ public class HotCompiler
 			}
 		}
 
+		ShowSeparator();
+
 		if (Ask("Installation will delete all previous game source files. Do you want to continue?"))
 		{
 			if (!CopyFolderWithMessage("game source", frameworkNativeSourceGameSourcePath, projectSourcePath))
@@ -305,6 +321,10 @@ public class HotCompiler
 
 		return bResponse;
 	}
+	private static void ShowSeparator()
+	{
+		SpecialMessage("\n\n***\n\n");
+	}
 
 	private static void Error(string message) {
 		Console.ForegroundColor = ErrorColor;
@@ -335,10 +355,18 @@ public class HotCompiler
 		Console.ResetColor();
 	}
 
+	private static void SpecialMessage(string message)
+	{
+		Console.ForegroundColor = SpecialMessageColor;
+		Console.WriteLine(message);
+		Console.ResetColor();
+	}
+
 	private static ConsoleColor ErrorColor = ConsoleColor.Red;
 	private static ConsoleColor WarningColor = ConsoleColor.Yellow;
 	private static ConsoleColor InfoColor = ConsoleColor.Cyan;
 	private static ConsoleColor SuccessColor = ConsoleColor.Green;
+	private static ConsoleColor SpecialMessageColor = ConsoleColor.Magenta;
 }
 
 public static class HotCompilerProgram
