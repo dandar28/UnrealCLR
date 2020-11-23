@@ -131,12 +131,28 @@ public class HotCompiler
 			{
 				foreach (string directoriesPath in Directory.GetDirectories(fromFolder, "*", SearchOption.AllDirectories))
 				{
-					Directory.CreateDirectory(directoriesPath.Replace(fromFolder, toFolder, StringComparison.Ordinal));
+					try
+					{
+						Directory.CreateDirectory(directoriesPath.Replace(fromFolder, toFolder, StringComparison.Ordinal));
+					}
+					catch (Exception e)
+					{
+						Warning(e.Message);
+						return false;
+					}
 				}
 
 				foreach (string filesPath in Directory.GetFiles(fromFolder, "*.*", SearchOption.AllDirectories))
 				{
-					File.Copy(filesPath, filesPath.Replace(fromFolder, toFolder, StringComparison.Ordinal), bShouldOverwrite);
+					try
+					{
+						File.Copy(filesPath, filesPath.Replace(fromFolder, toFolder, StringComparison.Ordinal), bShouldOverwrite);
+					}
+					catch (Exception e)
+					{
+						Warning(e.Message);
+						return false;
+					}
 				}
 			}
 			catch (Exception e)
