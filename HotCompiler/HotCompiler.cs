@@ -6,8 +6,8 @@ public class HotCompiler
 {
 	static private String pluginName { get { return "UnrealCLR"; } }
 	static private String frameworkRootPath { get { return Directory.GetCurrentDirectory() + "/../../../../../UnrealCLR"; } }
-	static private String frameworkSourcePath { get { return frameworkRootPath + "/Source"; } }
-	static private String frameworkNativeSourcePluginPath { get { return frameworkSourcePath + "/Plugin"; } }
+	static private String frameworkSourcePath { get { return frameworkRootPath + "/CSharpSource"; } }
+	static private String frameworkNativeSourcePluginPath { get { return frameworkRootPath + "/Plugin"; } }
 	static private String frameworkNativeSourceManagedPath { get { return frameworkSourcePath + "/Managed"; } }
 	static private String frameworkNativeSourceGameSourcePath { get { return frameworkSourcePath + "/Source"; } }
 
