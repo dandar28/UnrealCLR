@@ -141,7 +141,7 @@ public class HotCompiler
 			}
 			catch (Exception e)
 			{
-				Error(e.Message);
+				Warning(e.Message);
 				return false;
 			}
 
@@ -179,7 +179,7 @@ public class HotCompiler
 		{
 			if (!CopyFolderWithMessage("game source", frameworkNativeSourceGameSourcePath, projectSourcePath))
 			{
-				return false;
+				return true;
 			}
 		}
 
