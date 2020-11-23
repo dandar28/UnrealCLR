@@ -42,7 +42,7 @@ public class HotCompiler
 
 		if (!DownloadPlugin())
 		{
-			return false;
+			Warning("Could not install the plugin");
 		}
 
 		if (!ValidatePlugin())
@@ -52,7 +52,7 @@ public class HotCompiler
 
 		if (!DownloadSource())
 		{
-			return false;
+			Warning("Could not install the base game source");
 		}
 
 		if (Ask("Would you like to compile the managed runtime?"))
@@ -116,10 +116,17 @@ public class HotCompiler
 		{
 			Info($"Removing the previous {folderDisplayName} installation...");
 
-			if (Directory.Exists(toFolder))
+			try
 			{
-				Directory.Delete(toFolder, true);
-				Warning($"Deleted previous {folderDisplayName} installation");
+				if (Directory.Exists(toFolder))
+				{
+					Directory.Delete(toFolder, true);
+					Warning($"Deleted previous {folderDisplayName} installation");
+				}
+			}
+			catch (Exception e)
+			{
+				Warning(e.Message);
 			}
 		}
 
@@ -138,7 +145,7 @@ public class HotCompiler
 					catch (Exception e)
 					{
 						Warning(e.Message);
-						return false;
+						continue;
 					}
 				}
 
@@ -151,7 +158,7 @@ public class HotCompiler
 					catch (Exception e)
 					{
 						Warning(e.Message);
-						return false;
+						continue;
 					}
 				}
 			}
