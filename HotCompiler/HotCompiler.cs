@@ -108,7 +108,7 @@ public class HotCompiler
 		return true;
 	}
 
-	static private bool CopyFolderWithMessage(String folderDisplayName, String fromFolder, String toFolder, bool bRemovePrevious = false)
+	static private bool CopyFolderWithMessage(String folderDisplayName, String fromFolder, String toFolder, bool bRemovePrevious = false, bool bShouldOverwrite = false)
 	{
 
 		// Remove previous installation folder
@@ -136,7 +136,7 @@ public class HotCompiler
 
 				foreach (string filesPath in Directory.GetFiles(fromFolder, "*.*", SearchOption.AllDirectories))
 				{
-					File.Copy(filesPath, filesPath.Replace(fromFolder, toFolder, StringComparison.Ordinal), true);
+					File.Copy(filesPath, filesPath.Replace(fromFolder, toFolder, StringComparison.Ordinal), bShouldOverwrite);
 				}
 			}
 			catch (Exception e)
@@ -160,7 +160,7 @@ public class HotCompiler
 			return true;
 		}
 
-		return CopyFolderWithMessage("plugin", frameworkNativeSourcePluginPath, projectPluginFolder, true);
+		return CopyFolderWithMessage("plugin", frameworkNativeSourcePluginPath, projectPluginFolder, true, true);
 	}
 
 	private bool DownloadSource()
@@ -169,7 +169,7 @@ public class HotCompiler
 
 		if (Ask("Installation will delete all previous managed framework and runtime source files. Do you want to continue?"))
 		{
-			if (!CopyFolderWithMessage("managed framework and runtime", frameworkNativeSourceManagedPath, projectManagedPath, true))
+			if (!CopyFolderWithMessage("managed framework and runtime", frameworkNativeSourceManagedPath, projectManagedPath, true, true))
 			{
 				return false;
 			}
