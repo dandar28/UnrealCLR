@@ -1,0 +1,30 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.26",
+	"FriendlyName": "UnrealCLR",
+	"Description": ".NET 5 integration",
+	"Category": "Scripting",
+	"CreatedBy": "nxrighthere",
+	"CreatedByURL": "https://github.com/nxrighthere",
+	"DocsURL": "https://github.com/nxrighthere/UnrealCLR",
+	"MarketplaceURL": "",
+	"SupportURL": "https://gumroad.com/l/unrealclr",
+	"EnabledByDefault": true,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UnrealCLR",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen",
+			"WhitelistPlatforms": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		}
+	]
+}
